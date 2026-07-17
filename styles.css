@@ -101,6 +101,7 @@ svg {
   position: relative;
   display: block;
   min-height: 452px;
+  border: 0;
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: 0 20px 54px rgba(0, 0, 0, 0.42);
@@ -121,8 +122,19 @@ svg {
 }
 
 .link-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.52);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 76px rgba(0, 0, 0, 0.56);
+}
+
+.link-card-quiz::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(224, 245, 255, 0.78), transparent) top / 100% 1px no-repeat;
+  opacity: 0.56;
+  transition: opacity 280ms ease;
 }
 
 .link-card:focus-visible,
@@ -136,6 +148,7 @@ svg {
   position: absolute;
   inset: 0;
   z-index: -2;
+  transition: transform 520ms ease, filter 520ms ease;
 }
 
 .link-card-hero .product-bg {
@@ -147,9 +160,8 @@ svg {
 
 .link-card-quiz .product-bg {
   background:
-    radial-gradient(circle at 50% 14%, rgba(255, 126, 34, 0.38), transparent 18rem),
-    radial-gradient(circle at 18% 9%, rgba(230, 200, 100, 0.18), transparent 18rem),
-    linear-gradient(180deg, #251208 0%, #080706 64%, #000 100%);
+    linear-gradient(90deg, rgba(8, 20, 27, 0.16), transparent 28%, transparent 72%, rgba(8, 20, 27, 0.16)),
+    linear-gradient(180deg, #b8d0d9 0%, #9eb9c3 24%, #71858e 43%, #445159 57%, #252e33 69%, #12181c 79%, #070a0c 90%, #000 100%);
 }
 
 .link-card-apex .product-bg {
@@ -179,6 +191,19 @@ svg {
   background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.08) 35%, #000 72%);
 }
 
+.link-card-quiz .product-bg::before {
+  background:
+    linear-gradient(116deg, transparent 0 22%, rgba(255, 255, 255, 0.09) 22% 35%, transparent 35% 100%),
+    linear-gradient(244deg, transparent 0 58%, rgba(34, 62, 74, 0.12) 58% 72%, transparent 72% 100%);
+  background-size: auto;
+  mask-image: linear-gradient(to bottom, #000, transparent 66%);
+  opacity: 0.8;
+}
+
+.link-card-quiz .product-bg::after {
+  background: linear-gradient(180deg, transparent 0 38%, rgba(13, 19, 23, 0.08) 48%, rgba(8, 12, 15, 0.3) 62%, rgba(3, 5, 7, 0.74) 80%, #000 100%);
+}
+
 .product-stage {
   position: absolute;
   inset: 0 0 auto;
@@ -189,6 +214,7 @@ svg {
   min-height: 238px;
   padding: 26px 28px 0;
   text-align: center;
+  transition: transform 360ms ease;
 }
 
 .product-stage::before {
@@ -202,6 +228,10 @@ svg {
   border-radius: 999px;
   box-shadow: inset 0 0 70px rgba(255, 255, 255, 0.05);
   opacity: 0.72;
+}
+
+.product-stage-quiz::before {
+  display: none;
 }
 
 .hero-wordmark {
@@ -272,9 +302,10 @@ svg {
   margin-bottom: 9px;
   padding: 5px 13px;
   border-radius: 999px;
-  color: #160d03;
-  background: linear-gradient(135deg, #fff1a4, var(--gold));
-  box-shadow: 0 12px 34px rgba(230, 200, 100, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  color: #f7fbfd;
+  background: #0b1115;
+  box-shadow: 0 10px 28px rgba(3, 9, 13, 0.2);
   font-size: 0.66rem;
   font-weight: 950;
   text-transform: uppercase;
@@ -284,25 +315,26 @@ svg {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 3px;
-  padding: 14px 18px;
-  border: 1px solid rgba(230, 200, 100, 0.32);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(230, 200, 100, 0.16), rgba(255, 255, 255, 0.03)),
-    rgba(0, 0, 0, 0.24);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+  gap: 4px;
+  width: min(82%, 340px);
+  padding: 11px 18px;
+  border: 0;
+  border-top: 1px solid rgba(8, 25, 35, 0.28);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: transform 360ms ease, box-shadow 360ms ease;
 }
 
 .quiz-mark small {
-  color: rgba(255, 255, 255, 0.82);
+  color: #40515a;
   font-size: 0.68rem;
   font-weight: 900;
   text-transform: uppercase;
 }
 
 .quiz-mark b {
-  color: var(--gold);
+  color: #071117;
   font-size: clamp(1.42rem, 6.2vw, 2.25rem);
   line-height: 0.9;
   text-transform: uppercase;
@@ -312,30 +344,25 @@ svg {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 6px;
-  width: min(58%, 230px);
-  margin-top: 12px;
+  gap: 8px;
+  width: min(52%, 210px);
+  margin-top: 14px;
 }
 
 .diagnostic-ui i {
   display: block;
-  height: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent),
-    rgba(255, 119, 0, 0.28);
-  backdrop-filter: blur(10px);
+  height: 4px;
+  border: 0;
+  border-radius: 1px;
+  background: #101a20;
+  box-shadow: none;
+  transition: transform 360ms ease, background 360ms ease;
 }
 
 .diagnostic-ui i:nth-child(2) {
-  width: 86%;
-  justify-self: end;
-}
-
-.diagnostic-ui i:nth-child(3) {
   width: 72%;
-  justify-self: center;
+  justify-self: end;
+  background: rgba(255, 255, 255, 0.84);
 }
 
 .apex-mark {
@@ -411,8 +438,8 @@ svg {
 }
 
 .link-card-quiz .pill {
-  color: var(--gold);
-  border-color: rgba(230, 200, 100, 0.85);
+  color: #d7f1fc;
+  border-color: rgba(199, 232, 246, 0.7);
 }
 
 .link-card strong {
@@ -426,8 +453,68 @@ svg {
 
 .link-card-quiz strong {
   max-width: 13ch;
-  color: var(--gold);
+  color: #d9f1fb;
   font-size: clamp(1.5rem, 6.4vw, 2.12rem);
+}
+
+.link-card-quiz .card-copy {
+  color: #c8d0d5;
+}
+
+.link-card-quiz .button {
+  color: #071117;
+  background: linear-gradient(135deg, #f8fcfd, #bcdce9);
+  box-shadow: 0 16px 42px rgba(111, 171, 197, 0.2);
+  transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
+}
+
+@media (hover: hover) {
+  .link-card:hover .product-bg {
+    filter: saturate(1.05) brightness(1.035);
+    transform: scale(1.025);
+  }
+
+  .link-card:hover .product-stage {
+    transform: translateY(-4px);
+  }
+
+  .link-card:hover .button {
+    transform: translateY(-2px);
+  }
+
+  .link-card-hero:hover {
+    box-shadow: 0 32px 78px rgba(0, 0, 0, 0.62);
+  }
+
+  .link-card-quiz:hover {
+    box-shadow: 0 32px 78px rgba(0, 0, 0, 0.62);
+  }
+
+  .link-card-quiz:hover::after {
+    opacity: 1;
+  }
+
+  .link-card-quiz:hover .quiz-mark {
+    transform: translateY(-3px);
+  }
+
+  .link-card-quiz:hover .diagnostic-ui i:first-child {
+    transform: translateX(-8px);
+  }
+
+  .link-card-quiz:hover .diagnostic-ui i:nth-child(2) {
+    transform: translateX(8px);
+  }
+
+  .link-card-quiz:hover .button {
+    background: linear-gradient(135deg, #ffffff, #d8edf5);
+    box-shadow: 0 20px 48px rgba(111, 171, 197, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .link-card-apex:hover {
+    box-shadow: 0 32px 78px rgba(0, 0, 0, 0.62);
+  }
 }
 
 .card-copy {
@@ -455,6 +542,7 @@ svg {
   font-weight: 950;
   letter-spacing: 0;
   text-transform: uppercase;
+  transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
 }
 
 .bio {
@@ -574,7 +662,7 @@ svg {
   }
 
   .diagnostic-ui i {
-    height: 10px;
+    height: 4px;
   }
 
   .free-badge {
@@ -642,5 +730,37 @@ svg {
 
   .card-copy {
     font-size: 0.84rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card,
+  .link-card-quiz::after,
+  .link-card .product-bg,
+  .link-card .product-stage,
+  .link-card-quiz .quiz-mark,
+  .link-card-quiz .diagnostic-ui i,
+  .link-card .button {
+    transition: none;
+  }
+
+  .link-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .link-card-quiz::after {
+    display: none;
+  }
+
+  .link-card:hover,
+  .link-card:hover .product-bg,
+  .link-card:hover .product-stage,
+  .link-card-quiz:hover .quiz-mark,
+  .link-card-quiz:hover .diagnostic-ui i,
+  .link-card:hover .button {
+    filter: none;
+    transform: none;
   }
 }
