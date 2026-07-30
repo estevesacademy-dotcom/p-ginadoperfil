@@ -1,13 +1,11 @@
 const LINKS = {
-  CONSULTORIA_URL: "https://paginaconsultoriahero.netlify.app/",
+  CONSULTORIA_URL: "https://consultoriahero.com/planos",
   QUIZ_URL: "https://quizconsultoriahero.netlify.app/",
-  APEX_URL: "https://apexmethod-uy66xgww.manus.space/",
 };
 
 const destinations = {
   consultoria: () => LINKS.CONSULTORIA_URL,
   quiz: () => LINKS.QUIZ_URL,
-  apex: () => LINKS.APEX_URL,
 };
 
 function trackLink(eventName) {

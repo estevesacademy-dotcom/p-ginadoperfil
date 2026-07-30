@@ -7,11 +7,7 @@
   --soft: #98a1ad;
   --hero: #33b6ff;
   --blue: #146bff;
-  --green: #22f08d;
-  --green-dark: #56cf69;
   --gold: #e6c864;
-  --apex: #9bd2ff;
-  --apex-deep: #3147ff;
   --radius: 8px;
   font-family: Inter, Manrope, "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -117,10 +113,6 @@ svg {
   animation-delay: 90ms;
 }
 
-.link-card:nth-child(3) {
-  animation-delay: 180ms;
-}
-
 .link-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 76px rgba(0, 0, 0, 0.56);
@@ -162,13 +154,6 @@ svg {
   background:
     linear-gradient(90deg, rgba(8, 20, 27, 0.16), transparent 28%, transparent 72%, rgba(8, 20, 27, 0.16)),
     linear-gradient(180deg, #b8d0d9 0%, #9eb9c3 24%, #71858e 43%, #445159 57%, #252e33 69%, #12181c 79%, #070a0c 90%, #000 100%);
-}
-
-.link-card-apex .product-bg {
-  background:
-    radial-gradient(circle at 50% 16%, rgba(155, 210, 255, 0.28), transparent 18rem),
-    radial-gradient(circle at 76% 5%, rgba(49, 71, 255, 0.24), transparent 18rem),
-    linear-gradient(180deg, #071326 0%, #05070c 64%, #000 100%);
 }
 
 .product-bg::before,
@@ -365,53 +350,6 @@ svg {
   background: rgba(255, 255, 255, 0.84);
 }
 
-.apex-mark {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 1px;
-  min-width: min(82%, 310px);
-  padding: 18px 22px;
-  border: 1px solid rgba(155, 210, 255, 0.28);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(155, 210, 255, 0.16), rgba(255, 255, 255, 0.03)),
-    rgba(0, 0, 0, 0.22);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
-}
-
-.apex-mark small {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.7rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.apex-mark b {
-  color: var(--apex);
-  font-size: clamp(2.2rem, 9.4vw, 3.8rem);
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-
-.apex-lines {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 0.72fr 0.44fr;
-  gap: 8px;
-  width: min(68%, 260px);
-  margin-top: 14px;
-}
-
-.apex-lines i {
-  display: block;
-  height: 4px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--apex), transparent);
-  box-shadow: 0 0 18px rgba(155, 210, 255, 0.38);
-}
-
 .card-content {
   position: absolute;
   inset: auto 0 0;
@@ -486,6 +424,11 @@ svg {
     box-shadow: 0 32px 78px rgba(0, 0, 0, 0.62);
   }
 
+  .link-card-hero:hover .button {
+    background: linear-gradient(135deg, #8edfff, #43bfff);
+    box-shadow: 0 20px 52px rgba(51, 182, 255, 0.34);
+  }
+
   .link-card-quiz:hover {
     box-shadow: 0 32px 78px rgba(0, 0, 0, 0.62);
   }
@@ -512,9 +455,6 @@ svg {
     transform: translateY(-2px);
   }
 
-  .link-card-apex:hover {
-    box-shadow: 0 32px 78px rgba(0, 0, 0, 0.62);
-  }
 }
 
 .card-copy {
@@ -535,9 +475,9 @@ svg {
   margin-top: 4px;
   padding: 13px 20px;
   border-radius: 999px;
-  color: #06120a;
-  background: linear-gradient(135deg, var(--green), var(--green-dark));
-  box-shadow: 0 18px 46px rgba(34, 240, 141, 0.22);
+  color: #03131d;
+  background: linear-gradient(135deg, #76d6ff, #2cb2f3);
+  box-shadow: 0 18px 46px rgba(51, 182, 255, 0.24);
   font-size: 0.78rem;
   font-weight: 950;
   letter-spacing: 0;
@@ -670,19 +610,6 @@ svg {
     margin-bottom: 7px;
     padding: 4px 11px;
     font-size: 0.58rem;
-  }
-
-  .apex-mark {
-    min-width: min(82%, 280px);
-    padding: 14px 17px;
-  }
-
-  .apex-mark b {
-    font-size: clamp(1.9rem, 8vw, 2.8rem);
-  }
-
-  .apex-lines {
-    margin-top: 11px;
   }
 
   .card-content {
