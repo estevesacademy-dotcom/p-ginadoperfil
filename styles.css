@@ -113,6 +113,10 @@ svg {
   animation-delay: 90ms;
 }
 
+.link-card-hero {
+  min-height: 590px;
+}
+
 .link-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 76px rgba(0, 0, 0, 0.56);
@@ -466,6 +470,31 @@ svg {
   line-height: 1.34;
 }
 
+.hero-copy {
+  display: grid;
+  gap: 9px;
+  max-width: 26rem;
+}
+
+.hero-copy > span {
+  display: block;
+}
+
+.hero-copy .protocols-label {
+  margin-top: 2px;
+  color: #83d9ff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-copy .protocols-list {
+  color: #edf9ff;
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.4;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -641,6 +670,10 @@ svg {
 
   .link-card {
     min-height: 392px;
+  }
+
+  .link-card-hero {
+    min-height: 620px;
   }
 
   .product-stage {
